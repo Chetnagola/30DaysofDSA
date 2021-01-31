@@ -1,0 +1,31 @@
+class Solution {
+    public int searchpivot(int []a,int l,int h,int target)
+    {
+        if(l>h)
+        return -1;
+        
+        int mid=(l+h)/2;
+        if(a[mid]==target)
+            return mid;
+        if(a[l]<=a[mid])
+        {
+            if(target<=a[mid] && target>=a[l])
+            {
+                return searchpivot(a,l,mid-1,target);
+            }
+            
+               return searchpivot(a,mid+1,h,target);
+        }
+        if(target>=a[mid]&& target<=a[h])
+            return searchpivot(a,mid+1,h,target);
+        
+        return searchpivot(a,l,mid-1,target);
+    }
+    public int search(int[] nums, int target) {
+        
+        int m=searchpivot(nums,0,nums.length-1,target);
+        return m;
+          
+        
+    }
+}
