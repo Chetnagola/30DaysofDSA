@@ -1,0 +1,44 @@
+import java.util.*;
+public class QuickSort {
+	public static int Pivot(int a[],int s,int e)
+	{
+		int piv=a[e];
+		int j=s,temp,i=s-1;
+		while(j<=e-1)
+		{
+			if(a[j]<piv)
+			{
+				i++;
+				temp=a[j];
+				a[j]=a[i];
+				a[i]=temp;
+			}
+			j++;
+		}
+		temp=a[i+1];
+		a[i+1]=a[e];
+		a[e]=temp;
+		return i+1;
+	}
+    public static void Sort(int a[],int s,int e)
+    {
+    	if(s<e)
+    	{
+    		int pivot=Pivot(a,s,e);
+    		Sort(a,s,pivot-1);
+    		Sort(a,pivot+1,e);
+    	}
+    }
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		int a[]=new int [n];
+		for(int i=0;i<n;i++)
+	    a[i]=s.nextInt();
+		Sort(a,0,n-1);
+		for(int i=0;i<n;i++)
+		System.out.print(a[i]+" ");	
+	}
+
+}
