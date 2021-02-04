@@ -1,0 +1,68 @@
+import java.util.*;
+public class MergeSorting {
+	
+	public static void merge(int a[],int s,int mid,int e)
+	{
+		int i=s,j=s;
+		int k=mid+1;
+		int temp[]=new int [a.length];
+		while(i<=mid && k<=e)
+		{
+			if(a[i]<a[k])
+			{
+				temp[j]=a[i];
+				i++;
+				j++;
+			}
+			else
+			{
+				temp[j]=a[k];
+				j++;
+				k++;
+			}
+				
+		}
+		while(i<=mid)
+		{
+			temp[j]=a[i];
+			i++;
+			j++;
+		}
+		while(k<=e)
+		{
+			temp[j]=a[k];
+			k++;
+			j++;
+		}
+		for(i=s;i<j;i++)
+		{
+			a[i]=temp[i];
+		}
+		
+	}
+	public static void Sort(int a[],int s,int e)
+	{
+		if(s<e)
+		{
+			int mid=(s+e)/2;
+			Sort(a,s,mid);
+			Sort(a,mid+1,e);
+			merge(a,s,mid,e);
+		}
+	}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter ");
+		int n=s.nextInt();
+		int a[]=new int[n];
+		for(int i=0;i<n;i++)
+		a[i]=s.nextInt();
+		Sort(a,0,n-1);
+		for(int i=0;i<n;i++)
+		System.out.print(a[i]+" ");	
+		}
+
+}
