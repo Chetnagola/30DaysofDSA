@@ -1,0 +1,33 @@
+Ques1 : Seat Allotment Jee Mains 
+
+Data Types Used:
+
+1. 2D Matrix 
+    type: int 
+    size: 4X4
+    purpose:to keep a count of seats department wise and category wise
+    rows= departments 
+    columns=categories
+
+
+             gen    obc    sc/st    pwd
+    CSE
+     IT
+    ECE 
+    Mech
+
+2. 1D array (allot)
+    type: int 
+    size: 5
+    purpose:to store finalise allocated dept
+
+3.1D array(choice) 
+    type: int 
+    size: 5
+    purpose:to store choices rank wise
+
+4.1D array(category)
+   type: int 
+   size: 5
+   purpose:to store categories rank wise
+    
